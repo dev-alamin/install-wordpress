@@ -387,9 +387,10 @@ Repeat steps 1 to 9 for each new site you want to create with a different domain
 To fix permission issues, run the following commands:
 
 ```bash
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
-sudo chown -R duser_name:www-data /var/www/html/
+sudo chown -R www-data:www-data /var/www/yoursite
+sudo find /var/www/yoursite -type d -exec chmod 755 {} \;
+sudo find /var/www/yoursite -type f -exec chmod 644 {} \;
+sudo chmod 600 /var/www/yoursite/wp-config.php
 ```
 
 ## 7. Install WP-CLI
